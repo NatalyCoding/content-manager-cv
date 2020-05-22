@@ -2,7 +2,7 @@
 
 const { src, dest } = require("gulp");
 const gulp = require("gulp");
-const autopprefixer = require("gulp-autoprefixer");
+const autoprefixer = require("gulp-autoprefixer");
 const cssbeautify = require("gulp-cssbeautify");
 const removeComments = require("gulp-strip-css-comments");
 const rename = require("gulp-rename");
@@ -44,7 +44,7 @@ function html() {
         .pipe(dest(path.build.html));
 }
 
-function html() {
+function css() {
     return src(path.src.css, { base: "src/assets/sass/" })
         .pipe(plumber())
         .pipe(sass())
@@ -52,5 +52,6 @@ function html() {
         .pipe(cssbeautify())
         .pipe(dest(path.build.css));
 }
+
 exports.html = html;
 exports.css = css;
